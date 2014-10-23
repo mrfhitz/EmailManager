@@ -37,8 +37,15 @@ class Mailit {
 		$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
 		$message = $this->buildMessage($msg);
-
-		mail($to, $subject, $message, $headers);
+		
+		if(is_array($to)){
+			foreach ($to as $value) {
+				mail($value, $subject, $message, $headers);
+			}
+		} else {
+			mail($to, $subject, $message, $headers);
+		}
+		
 	}
 
 }
