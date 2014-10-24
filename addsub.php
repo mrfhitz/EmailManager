@@ -1,6 +1,8 @@
 <?php
 
 require_once 'database.php';
+require_once 'class/Mailit.php';
+
 $data = parse_ini_file("config.ini", true);
 
 	set_error_handler(function($errno, $errstr, $errfile, $errline, array $errcontext) {
@@ -23,6 +25,12 @@ $data = parse_ini_file("config.ini", true);
 	$db->insertUniq('subscribers', array(
 		    'email' => $email 
 		    ));
+
+	$mail = new Mailit("newsletter@example.com");
+
+	$msg = "Thanks for subscribing, hope you'll enjoy our newsletter";
+	$mail->sendMail($email, "Subscibe", $msg);
+
 
 
 
