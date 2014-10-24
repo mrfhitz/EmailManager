@@ -135,7 +135,6 @@ class DataBase {
 		    foreach($args as $key => $value){
 			    $query->bindValue($key, $value);
 		    }
-
 		    return $query->execute();
 
 	    }catch(Exception $e){return false;$this->_errors++;}
