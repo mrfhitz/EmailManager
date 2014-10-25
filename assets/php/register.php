@@ -1,9 +1,9 @@
 <?php
 
 require_once 'database.php';
-require_once 'class/Mailit.php';
+require_once '../class/Mailit.php';
 
-$data = parse_ini_file("config.ini", true);
+$data = parse_ini_file("../../config.ini", true);
 
 	$db = new DataBase(
 		$data['mysql']['hostname'], // localhost
